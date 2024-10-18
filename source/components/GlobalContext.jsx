@@ -5,7 +5,7 @@ export const GlobalContext = createContext({});
 
 export function GlobalProvider({children}) {
   const [refresh, setRefresh] = useState(false);
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('pl');
   const [avatar, setAvatar] = useState(null);
   const [name, setName] = useState('');
 

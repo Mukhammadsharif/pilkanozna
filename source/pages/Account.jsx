@@ -102,21 +102,22 @@ export default function Account() {
               />
 
               {!language ? (
-                <View style={styles.languagesInputContainer}>
-                  <TextInput
-                    style={styles.languageInput}
-                    placeholder={
-                      translations.find(item => item?.en === 'Choose Language')[
-                        lang
-                      ]
-                    }
-                    placeholderTextColor={'#870C9D'}
-                    editable={false}
-                  />
-                  <TouchableOpacity onPress={() => setLanguage(true)}>
+                <TouchableOpacity
+                  style={styles.languagesInputContainer}
+                  onPress={() => setLanguage(true)}>
+                  <View style={styles.languageInput}>
+                    <Text style={styles.languageText}>
+                      {
+                        translations.find(
+                          item => item?.en === 'Choose Language',
+                        )[lang]
+                      }
+                    </Text>
+                  </View>
+                  <View>
                     <Image source={PolygonIcon} style={styles.polygon} />
-                  </TouchableOpacity>
-                </View>
+                  </View>
+                </TouchableOpacity>
               ) : (
                 <View style={styles.content}>
                   <ScrollView>
@@ -285,6 +286,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Jura-SemiBold',
     fontSize: 20,
     fontWeight: '900',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   polygon: {
     width: 20,
@@ -327,5 +330,12 @@ const styles = StyleSheet.create({
     height: 15,
     borderRadius: 50,
     zIndex: 101,
+  },
+  languageText: {
+    textAlign: 'center',
+    fontFamily: 'Jura-SemiBold',
+    fontSize: 20,
+    fontWeight: '900',
+    color: '#870C9D',
   },
 });

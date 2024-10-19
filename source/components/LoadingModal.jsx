@@ -1,6 +1,11 @@
 import React from 'react';
-import {Modal, View, StyleSheet, Dimensions, Image} from 'react-native';
-import LoadingIcon from '../images/rest/loading.png';
+import {
+  Modal,
+  View,
+  StyleSheet,
+  Dimensions,
+  ActivityIndicator,
+} from 'react-native';
 
 export default function LoadingModal({modalVisible, setModalVisible}) {
   return (
@@ -14,7 +19,11 @@ export default function LoadingModal({modalVisible, setModalVisible}) {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Image source={LoadingIcon} style={styles.icon} />
+            <ActivityIndicator
+              size={'large'}
+              color="#870C9D"
+              style={styles.icon}
+            />
           </View>
         </View>
       </Modal>
@@ -48,7 +57,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   icon: {
-    width: Dimensions.get('window').width / 3,
+    width: 160,
+    height: 160,
     objectFit: 'contain',
     alignSelf: 'center',
   },
